@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centering Example with Flexbox</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .center-container {
+        width: 3000px; /* Changed to 100% for responsiveness */
+        height: 3000px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: blueviolet;
+      }
+
+      /* Basic styles for the button */
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f5f5f5; /* Neutral background color */
+        color: #333; /* Dark text color for better contrast */
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 16px;
+
+        /* Responsive adjustments */
+        width: auto; /* Adjust width based on content */
+      }
+
+      /* Hover effect for the button */
+      .btn:hover {
+        background-color: #e0e0e0; /* Slightly darker shade of gray on hover */
+      }
+
+      /* Active effect for the button */
+      .btn:active {
+        transform: translateY(
+          1px
+        ); /* Move the button down slightly when clicked */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center-container" id="rndm">
+      <div class="center-content">
+        <button class="btn" id="btn" onclick="colorgenerator()">
+          Generate Random Color
+        </button>
+        <div id="res"></div>
+      </div>
+    </div>
+    <script>
+      const colorgenerator = () => {
+        let num = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 1; i <= 6; i++) {
+          color += num[Math.floor(Math.random() * 16)];
+        }
+        document.getElementById("rndm").style.backgroundColor = color;
+        // document.getElementById("res").innerText=color;
+      };
+    </script>
+  </body>
+</html>
